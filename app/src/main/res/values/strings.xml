@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">EffectiveSales</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="air_tickets_label">Авиабилеты</string>
+    <string name="hotel_label">Отели</string>
+    <string name="shorter_label">Короче</string>
+    <string name="subscriptions_label">Подписки</string>
+    <string name="profile_label">Профиль</string>
 </resources>

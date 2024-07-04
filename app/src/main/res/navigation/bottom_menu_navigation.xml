@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_menu_navigation"
+    app:startDestination="@id/airlineTicketsFragment">
+
+    <fragment
+        android:id="@+id/airlineTicketsFragment"
+        android:name="ru.lorderi.effectivesales.ui.fragments.AirlineTicketsFragment"
+        android:label="fragment_airline_tickets"
+        tools:layout="@layout/fragment_airline_tickets" />
+    <fragment
+        android:id="@+id/hotelsFragment"
+        android:name="ru.lorderi.effectivesales.ui.fragments.HotelsFragment"
+        android:label="fragment_hotels"
+        tools:layout="@layout/fragment_hotels" />
+    <fragment
+        android:id="@+id/shorterFragment"
+        android:name="ru.lorderi.effectivesales.ui.fragments.ShorterFragment"
+        android:label="fragment_shorter"
+        tools:layout="@layout/fragment_shorter" />
+    <fragment
+        android:id="@+id/subscriptionsFragment"
+        android:name="ru.lorderi.effectivesales.ui.fragments.SubscriptionsFragment"
+        android:label="fragment_subscriptions"
+        tools:layout="@layout/fragment_subscriptions" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="ru.lorderi.effectivesales.ui.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
