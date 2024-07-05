@@ -14,7 +14,7 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import ru.lorderi.effectivesales.databinding.FragmentAirlineTicketsBinding
-import ru.lorderi.effectivesales.ui.adapter.AirlineTicketsAdapter
+import ru.lorderi.effectivesales.ui.adapter.airlinetickets.AirlineTicketsAdapter
 import ru.lorderi.effectivesales.ui.itemdecoration.OffsetDecoration
 import ru.lorderi.effectivesales.ui.repository.TestAitTicketRepository
 import ru.lorderi.effectivesales.ui.viewmodel.AirlineTicketsViewModel
@@ -55,6 +55,8 @@ class AirlineTicketsFragment : Fragment() {
         binding.musicList.adapter = adapter
 
         binding.musicList.addItemDecoration(OffsetDecoration(8, 67))
+
+
 
         viewModel.uiState
             .flowWithLifecycle(lifecycle)

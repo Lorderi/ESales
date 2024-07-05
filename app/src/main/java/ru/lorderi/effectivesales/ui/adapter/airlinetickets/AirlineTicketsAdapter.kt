@@ -1,4 +1,4 @@
-package ru.lorderi.effectivesales.ui.adapter
+package ru.lorderi.effectivesales.ui.adapter.airlinetickets
 
 
 import android.view.LayoutInflater

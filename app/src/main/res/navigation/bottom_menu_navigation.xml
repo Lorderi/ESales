@@ -9,7 +9,11 @@
         android:id="@+id/airlineTicketsFragment"
         android:name="ru.lorderi.effectivesales.ui.fragments.AirlineTicketsFragment"
         android:label="fragment_airline_tickets"
-        tools:layout="@layout/fragment_airline_tickets" />
+        tools:layout="@layout/fragment_airline_tickets">
+        <action
+            android:id="@+id/action_airlineTicketsFragment_to_airlineTicketsBottomSheetDialog"
+            app:destination="@id/airlineTicketsBottomSheetDialog" />
+    </fragment>
     <fragment
         android:id="@+id/hotelsFragment"
         android:name="ru.lorderi.effectivesales.ui.fragments.HotelsFragment"
@@ -30,4 +34,8 @@
         android:name="ru.lorderi.effectivesales.ui.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <dialog
+        android:id="@+id/airlineTicketsBottomSheetDialog"
+        android:name="ru.lorderi.effectivesales.ui.fragments.AirlineTicketsBottomSheetDialog"
+        android:label="AirlineTicketsBottomSheetDialog" />
 </navigation>

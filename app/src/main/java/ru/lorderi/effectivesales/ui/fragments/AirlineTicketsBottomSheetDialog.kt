@@ -16,8 +16,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import ru.lorderi.effectivesales.databinding.AirlineTicketsBottomSheetBinding
+import ru.lorderi.effectivesales.ui.adapter.searchoffers.SearchOffersAdapter
 import ru.lorderi.effectivesales.ui.fragments.AirlineTicketsFragment.Companion.CITY_FROM
 import ru.lorderi.effectivesales.ui.fragments.AirlineTicketsFragment.Companion.CITY_TO
+import ru.lorderi.effectivesales.ui.itemdecoration.OffsetDecoration
 import ru.lorderi.effectivesales.ui.repository.TestAitTicketRepository
 import ru.lorderi.effectivesales.ui.viewmodel.AirlineTicketsViewModel
 
@@ -40,6 +42,32 @@ class AirlineTicketsBottomSheetDialog : BottomSheetDialogFragment() {
             }
         }
 
+        val adapter = SearchOffersAdapter()
+
+        binding.cityList.adapter = adapter
+
+        binding.cityList.addItemDecoration(OffsetDecoration(16, 16))
+
+        binding.cancel.setOnClickListener {
+            binding.cityTo.setText("")
+        }
+
+        binding.routeBackground.setOnClickListener {
+            dismiss()
+        }
+
+        binding.globeBackground.setOnClickListener {
+            binding.cityTo.setText("Куда угодно")
+        }
+
+        binding.calendarBackground.setOnClickListener {
+            dismiss()
+        }
+
+        binding.fireBackground.setOnClickListener {
+            dismiss()
+        }
+
         cityTo?.let {
             binding.cityTo.setText(cityTo)
         }
@@ -50,7 +78,9 @@ class AirlineTicketsBottomSheetDialog : BottomSheetDialogFragment() {
 
         viewModel.uiState
             .flowWithLifecycle(lifecycle)
-            .onEach { }
+            .onEach {
+                adapter.submitList(it.searchOffer.searchOffer)
+            }
             .launchIn(lifecycleScope)
 
         return binding.root

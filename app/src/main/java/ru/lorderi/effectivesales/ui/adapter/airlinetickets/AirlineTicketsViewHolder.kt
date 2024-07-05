@@ -1,4 +1,4 @@
-package ru.lorderi.effectivesales.ui.adapter
+package ru.lorderi.effectivesales.ui.adapter.airlinetickets
 
 import androidx.recyclerview.widget.RecyclerView
 import ru.lorderi.effectivesales.databinding.TicketCardBinding

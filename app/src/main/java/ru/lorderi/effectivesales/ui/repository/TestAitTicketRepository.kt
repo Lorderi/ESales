@@ -6,9 +6,11 @@ import kotlinx.coroutines.flow.asStateFlow
 import ru.lorderi.effectivesales.ui.data.Offer
 import ru.lorderi.effectivesales.ui.data.Offers
 import ru.lorderi.effectivesales.ui.data.Price
+import ru.lorderi.effectivesales.ui.data.SearchOffer
+import ru.lorderi.effectivesales.ui.data.SearchOffers
 
 class TestAitTicketRepository : AirlineTicketRepository {
-    private val state = MutableStateFlow(
+    private val offerState = MutableStateFlow(
         Offers(
             listOf(
                 Offer(
@@ -33,5 +35,25 @@ class TestAitTicketRepository : AirlineTicketRepository {
         )
     )
 
-    override fun getTickets(): Flow<Offers> = state.asStateFlow()
+    private val searchState = MutableStateFlow(
+        SearchOffers(
+            listOf(
+                SearchOffer(
+                    id = 1,
+                    town = "Стамбул",
+                ),
+                SearchOffer(
+                    id = 2,
+                    town = "Сочи",
+                ),
+                SearchOffer(
+                    id = 3,
+                    town = "Пхукет",
+                )
+            )
+        )
+    )
+
+    override fun getTickets(): Flow<Offers> = offerState.asStateFlow()
+    override fun getSearchOffers(): Flow<SearchOffers> = searchState.asStateFlow()
 }

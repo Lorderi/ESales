@@ -26,5 +26,12 @@ class AirlineTicketsViewModel(
             }
             .launchIn(viewModelScope)
 
+        repository.getSearchOffers()
+            .onEach { searchOffer ->
+                _uiState.update {
+                    it.copy(searchOffer = searchOffer)
+                }
+            }
+            .launchIn(viewModelScope)
     }
 }

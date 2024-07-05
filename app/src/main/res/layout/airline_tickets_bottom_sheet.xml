@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#242529"
+    tools:context=".ui.fragments.AirlineTicketsBottomSheetDialog"
     android:orientation="vertical">
 
 
@@ -14,12 +15,14 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         app:cardBackgroundColor="#2F3035"
+        app:layout_constraintBottom_toTopOf="@id/menuTopBarrier"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -92,17 +95,12 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
-    <!--    <GridLayout-->
-    <!--        android:id="@+id/fastMenu"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:columnCount="4"-->
-    <!--        android:useDefaultMargins="true"-->
-    <!--        android:orientation="horizontal"-->
-    <!--        android:rowCount="2">-->
-
-
-    <!--    </GridLayout>-->
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/menuTopBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="routeBackground, globeBackground, calendarBackground, fireBackground" />
 
     <ImageView
         android:id="@+id/routeBackground"
