@@ -7,4 +7,13 @@
     <string name="shorter_label">Короче</string>
     <string name="subscriptions_label">Подписки</string>
     <string name="profile_label">Профиль</string>
+    <string name="search_label">Search</string>
+    <string name="bottom_label">Ваш первый раз</string>
+    <string name="show_places_label">Показать все места</string>
+    <string name="center_label">Музыкально отлететь</string>
+    <string name="from_label">Откуда - Москва</string>
+    <string name="to_label">Куда - Турция</string>
+    <string name="search_advanced_label">Поиск дешевых авиабилетов</string>
+    <string name="ticket_avatar">ticket avatar</string>
+    <string name="air_icon">air icon</string>
 </resources>
