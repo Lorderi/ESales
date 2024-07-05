@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
@@ -20,6 +21,11 @@ import ru.lorderi.effectivesales.ui.viewmodel.AirlineTicketsViewModel
 
 
 class AirlineTicketsFragment : Fragment() {
+    companion object {
+        const val CITY_TO = "cityTo"
+        const val CITY_FROM = "cityFrom"
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,9 +42,19 @@ class AirlineTicketsFragment : Fragment() {
             }
         }
 
+        binding.cityTo.setOnClickListener {
+            val modal = AirlineTicketsBottomSheetDialog()
+            modal.arguments =
+                bundleOf(
+                    CITY_TO to binding.cityTo.text.toString(),
+                    CITY_FROM to binding.cityFrom.text.toString()
+                )
+            childFragmentManager.let { modal.show(it, AirlineTicketsBottomSheetDialog.TAG) }
+        }
+
         binding.musicList.adapter = adapter
 
-        binding.musicList.addItemDecoration(OffsetDecoration(8))
+        binding.musicList.addItemDecoration(OffsetDecoration(8, 67))
 
         viewModel.uiState
             .flowWithLifecycle(lifecycle)

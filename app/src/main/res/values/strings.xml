@@ -16,4 +16,7 @@
     <string name="search_advanced_label">Поиск дешевых авиабилетов</string>
     <string name="ticket_avatar">ticket avatar</string>
     <string name="air_icon">air icon</string>
+    <string name="city_avatar">city avatar</string>
+    <string name="popular_route_label">Популярное направление</string>
+    <string name="cancel_label">cancel</string>
 </resources>

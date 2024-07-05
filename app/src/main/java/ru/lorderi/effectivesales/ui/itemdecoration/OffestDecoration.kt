@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class OffsetDecoration(
     @Px private val offset: Int,
+    @Px private val offsetRight: Int,
 ) : RecyclerView.ItemDecoration() {
     override fun getItemOffsets(
         outRect: Rect,
@@ -17,7 +18,7 @@ class OffsetDecoration(
     ) {
         outRect.top += offset
         outRect.left += offset
-        outRect.right += offset
+        outRect.right += offsetRight
 
         val lastVisibleItemPosition =
             (parent.layoutManager as? LinearLayoutManager)?.findLastVisibleItemPosition()

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#242529"
+    android:orientation="vertical">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/searchPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="#2F3035"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/planeIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/search_label"
+                android:src="@drawable/ic_plane"
+                app:layout_constraintBottom_toBottomOf="@id/cityFrom"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cityFrom" />
+
+            <EditText
+                android:id="@+id/cityFrom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:autofillHints="@string/from_label"
+                android:hint="@string/from_label"
+                android:inputType="text"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/cityTo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/searchIcon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/searchIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/search_label"
+                android:src="@drawable/ic_search"
+                app:layout_constraintBottom_toBottomOf="@id/cityTo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cityTo"
+                app:tint="#FFFFFF" />
+
+            <EditText
+                android:id="@+id/cityTo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:autofillHints="@string/to_label"
+                android:hint="@string/to_label"
+                android:inputType="text"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/cancel"
+                app:layout_constraintStart_toEndOf="@id/searchIcon"
+                app:layout_constraintTop_toBottomOf="@id/cityFrom" />
+
+            <ImageView
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/cancel_label"
+                android:src="@drawable/ic_cancel"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cityTo"
+                app:layout_constraintTop_toBottomOf="@id/cityFrom" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!--    <GridLayout-->
+    <!--        android:id="@+id/fastMenu"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:columnCount="4"-->
+    <!--        android:useDefaultMargins="true"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        android:rowCount="2">-->
+
+
+    <!--    </GridLayout>-->
+
+    <ImageView
+        android:id="@+id/routeBackground"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/city_background"
+        app:layout_constraintBottom_toTopOf="@id/routeLabel"
+        app:layout_constraintEnd_toStartOf="@id/globeBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchPanel"
+        app:tint="#3A633B" />
+
+    <ImageView
+        android:id="@+id/routeIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_route"
+        app:layout_constraintBottom_toBottomOf="@id/routeBackground"
+        app:layout_constraintEnd_toEndOf="@id/routeBackground"
+        app:layout_constraintStart_toStartOf="@id/routeBackground"
+        app:layout_constraintTop_toTopOf="@id/routeBackground" />
+
+    <TextView
+        android:id="@+id/routeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Сложный маршрут"
+        app:layout_constraintBottom_toTopOf="@id/cityPlate"
+        app:layout_constraintEnd_toStartOf="@id/globeLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/routeBackground" />
+
+    <ImageView
+        android:id="@+id/globeBackground"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/city_background"
+        app:layout_constraintBottom_toTopOf="@id/globeLabel"
+        app:layout_constraintEnd_toStartOf="@id/calendarBackground"
+        app:layout_constraintStart_toEndOf="@id/routeBackground"
+        app:layout_constraintTop_toBottomOf="@id/searchPanel"
+        app:tint="#2261BC" />
+
+
+    <ImageView
+        android:id="@+id/globeIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_globe"
+        app:layout_constraintBottom_toBottomOf="@id/globeBackground"
+        app:layout_constraintEnd_toEndOf="@id/globeBackground"
+        app:layout_constraintStart_toStartOf="@id/globeBackground"
+        app:layout_constraintTop_toTopOf="@id/globeBackground" />
+
+    <TextView
+        android:id="@+id/globeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Куда угодно"
+        app:layout_constraintBottom_toTopOf="@id/cityPlate"
+        app:layout_constraintEnd_toStartOf="@id/calendarLabel"
+        app:layout_constraintStart_toEndOf="@id/routeLabel"
+        app:layout_constraintTop_toBottomOf="@id/globeBackground" />
+
+    <ImageView
+        android:id="@+id/calendarBackground"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/city_background"
+        app:layout_constraintBottom_toTopOf="@id/calendarLabel"
+        app:layout_constraintEnd_toStartOf="@id/fireBackground"
+        app:layout_constraintStart_toEndOf="@id/globeBackground"
+        app:layout_constraintTop_toBottomOf="@id/searchPanel"
+        app:tint="#00427D" />
+
+
+    <ImageView
+        android:id="@+id/calendarIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_calendar"
+        app:layout_constraintBottom_toBottomOf="@id/calendarBackground"
+        app:layout_constraintEnd_toEndOf="@id/calendarBackground"
+        app:layout_constraintStart_toStartOf="@id/calendarBackground"
+        app:layout_constraintTop_toTopOf="@id/calendarBackground" />
+
+    <TextView
+        android:id="@+id/calendarLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выходные"
+        app:layout_constraintBottom_toTopOf="@id/cityPlate"
+        app:layout_constraintEnd_toStartOf="@id/fireLabel"
+        app:layout_constraintStart_toEndOf="@id/globeLabel"
+        app:layout_constraintTop_toBottomOf="@id/calendarBackground" />
+
+    <ImageView
+        android:id="@+id/fireBackground"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/city_background"
+        app:layout_constraintBottom_toTopOf="@id/fireLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/calendarBackground"
+        app:layout_constraintTop_toBottomOf="@id/searchPanel"
+        app:tint="#FF5E5E" />
+
+
+    <ImageView
+        android:id="@+id/fireIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_fire"
+        app:layout_constraintBottom_toBottomOf="@id/fireBackground"
+        app:layout_constraintEnd_toEndOf="@id/fireBackground"
+        app:layout_constraintStart_toStartOf="@id/fireBackground"
+        app:layout_constraintTop_toTopOf="@id/fireBackground" />
+
+    <TextView
+        android:id="@+id/fireLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Горячие билеты"
+        app:layout_constraintBottom_toTopOf="@id/cityPlate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/calendarLabel"
+        app:layout_constraintTop_toBottomOf="@id/fireBackground" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cityPlate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="#2F3035"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cityList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/city_card" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
