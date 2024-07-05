@@ -5,7 +5,7 @@ data class Price(
 )
 
 data class Offer(
-    val id: Long = 0L,
+    val id: Int = 0,
     val title: String,
     val town: String,
     val price: Price
