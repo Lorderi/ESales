@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#242529"
+
     android:orientation="vertical"
     tools:context=".ui.fragments.AirlineTicketsSearchFragment">
 
@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:contentDescription=""
+                android:contentDescription="@string/escape_label"
                 android:src="@drawable/ic_escape"
                 app:layout_constraintBottom_toBottomOf="@id/cityTo"
                 app:layout_constraintStart_toStartOf="parent"
@@ -48,12 +48,12 @@
                 android:inputType="text"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@id/cityTo"
-                app:layout_constraintEnd_toStartOf="@id/filter"
+                app:layout_constraintEnd_toStartOf="@id/move"
                 app:layout_constraintStart_toEndOf="@id/escape"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/filter"
+                android:id="@+id/move"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -89,7 +89,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/cityTo"
-                app:layout_constraintTop_toBottomOf="@id/filter" />
+                app:layout_constraintTop_toBottomOf="@id/move" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -109,26 +109,38 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/forward"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Обратно"
+                android:text="@string/back_label"
+                app:chipBackgroundColor="#242529"
+                app:chipCornerRadius="50dp"
                 app:chipIcon="@drawable/ic_add" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/currentDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:chipBackgroundColor="#242529"
+                app:chipCornerRadius="50dp"
                 tools:text="24 фев, сб" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/passengerCounter"
                 android:layout_width="wrap_content"
+                android:text="1,эконом"
                 android:layout_height="wrap_content"
+                app:chipBackgroundColor="#242529"
                 app:chipIcon="@drawable/ic_profile"
-                tools:text="1,эконом" />
+                app:chipCornerRadius="50dp" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="фильтры"
+                android:text="@string/filter_label"
+                app:chipBackgroundColor="#242529"
+                app:chipCornerRadius="50dp"
                 app:chipIcon="@drawable/ic_settings" />
 
         </com.google.android.material.chip.ChipGroup>
@@ -155,7 +167,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:text="Прямые рейсы"
+                android:text="@string/direct_route_label"
                 android:textSize="20sp" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -177,7 +189,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="Посмотреть все билеты"
+        android:text="@string/check_all_tickets_label"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="16sp"

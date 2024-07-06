@@ -33,5 +33,13 @@ class AirlineTicketsViewModel(
                 }
             }
             .launchIn(viewModelScope)
+
+        repository.getTicketsOffers()
+            .onEach { ticketsOffers ->
+                _uiState.update {
+                    it.copy(ticketsOffers = ticketsOffers)
+                }
+            }
+            .launchIn(viewModelScope)
     }
 }

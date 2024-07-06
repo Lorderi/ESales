@@ -118,6 +118,7 @@ class AirlineTicketsBottomSheetDialog : BottomSheetDialogFragment() {
             }
 
             override fun afterTextChanged(s: Editable?) {
+
             }
 
         }
