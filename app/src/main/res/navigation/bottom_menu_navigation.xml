@@ -37,5 +37,14 @@
     <dialog
         android:id="@+id/airlineTicketsBottomSheetDialog"
         android:name="ru.lorderi.effectivesales.ui.fragments.AirlineTicketsBottomSheetDialog"
-        android:label="AirlineTicketsBottomSheetDialog" />
+        android:label="AirlineTicketsBottomSheetDialog">
+        <action
+            android:id="@+id/action_airlineTicketsBottomSheetDialog_to_airlineTicketsSearchFragment"
+            app:destination="@id/airlineTicketsSearchFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/airlineTicketsSearchFragment"
+        android:name="ru.lorderi.effectivesales.ui.fragments.AirlineTicketsSearchFragment"
+        android:label="fragment_airline_tickets_search"
+        tools:layout="@layout/fragment_airline_tickets_search" />
 </navigation>

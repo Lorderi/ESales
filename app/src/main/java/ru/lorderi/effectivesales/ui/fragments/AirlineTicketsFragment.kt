@@ -11,8 +11,10 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import ru.lorderi.effectivesales.R
 import ru.lorderi.effectivesales.databinding.FragmentAirlineTicketsBinding
 import ru.lorderi.effectivesales.ui.adapter.airlinetickets.AirlineTicketsAdapter
 import ru.lorderi.effectivesales.ui.itemdecoration.OffsetDecoration
@@ -43,13 +45,20 @@ class AirlineTicketsFragment : Fragment() {
         }
 
         binding.cityTo.setOnClickListener {
-            val modal = AirlineTicketsBottomSheetDialog()
-            modal.arguments =
+            findNavController().navigate(
+                R.id.action_airlineTicketsFragment_to_airlineTicketsBottomSheetDialog,
                 bundleOf(
                     CITY_TO to binding.cityTo.text.toString(),
                     CITY_FROM to binding.cityFrom.text.toString()
                 )
-            childFragmentManager.let { modal.show(it, AirlineTicketsBottomSheetDialog.TAG) }
+            )
+//            val modal = AirlineTicketsBottomSheetDialog()
+//            modal.arguments =
+//                bundleOf(
+//                    CITY_TO to binding.cityTo.text.toString(),
+//                    CITY_FROM to binding.cityFrom.text.toString()
+//                )
+//            childFragmentManager.let { modal.show(it, AirlineTicketsBottomSheetDialog.TAG) }
         }
 
         binding.musicList.adapter = adapter
