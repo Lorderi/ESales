@@ -46,5 +46,14 @@
         android:id="@+id/airlineTicketsSearchFragment"
         android:name="ru.lorderi.effectivesales.ui.fragments.AirlineTicketsSearchFragment"
         android:label="fragment_airline_tickets_search"
-        tools:layout="@layout/fragment_airline_tickets_search" />
+        tools:layout="@layout/fragment_airline_tickets_search">
+        <action
+            android:id="@+id/action_airlineTicketsSearchFragment_to_airlineTicketsListFragment"
+            app:destination="@id/airlineTicketsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/airlineTicketsListFragment"
+        android:name="ru.lorderi.effectivesales.ui.fragments.AirlineTicketsListFragment"
+        android:label="fragment_airline_tickets_list"
+        tools:layout="@layout/fragment_airline_tickets_list" />
 </navigation>

@@ -128,7 +128,7 @@
             <com.google.android.material.chip.Chip
                 android:id="@+id/passengerCounter"
                 android:layout_width="wrap_content"
-                android:text="1,эконом"
+                android:text="@string/passenger_counter_label"
                 android:layout_height="wrap_content"
                 app:chipBackgroundColor="#242529"
                 app:chipIcon="@drawable/ic_profile"

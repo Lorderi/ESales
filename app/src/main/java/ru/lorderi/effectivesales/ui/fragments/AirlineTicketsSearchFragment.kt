@@ -14,6 +14,7 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import ru.lorderi.effectivesales.R
 import ru.lorderi.effectivesales.databinding.FragmentAirlineTicketsSearchBinding
 import ru.lorderi.effectivesales.ui.adapter.popularroute.PopularRouteAdapter
 import ru.lorderi.effectivesales.ui.fragments.AirlineTicketsFragment.Companion.CITY_FROM
@@ -81,11 +82,11 @@ class AirlineTicketsSearchFragment : Fragment() {
         binding.currentDate.text = calendar.getDate()
 
         binding.forward.setOnClickListener {
-            showDatePicker()
+            showDatePicker(binding)
         }
 
         binding.currentDate.setOnClickListener {
-            showDatePicker()
+            showDatePicker(binding)
         }
 
         binding.cityList.addItemDecoration(OffsetDecoration(16, 16))
@@ -95,11 +96,15 @@ class AirlineTicketsSearchFragment : Fragment() {
         }
 
         binding.escape.setOnClickListener {
-            requireParentFragment().findNavController().navigateUp()
+            findNavController().navigateUp()
+        }
+        binding.showAllTickets.setOnClickListener {
+            findNavController()
+                .navigate(R.id.action_airlineTicketsSearchFragment_to_airlineTicketsListFragment)
         }
     }
 
-    private fun showDatePicker() {
+    private fun showDatePicker(binding: FragmentAirlineTicketsSearchBinding) {
         // Create a DatePickerDialog
         val datePickerDialog = DatePickerDialog(
             requireContext(), { DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
@@ -110,6 +115,7 @@ class AirlineTicketsSearchFragment : Fragment() {
                 // Create a SimpleDateFormat to format the date as "dd/MM/yyyy"
                 val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
                 // Format the selected date into a string
+                binding.currentDate.text = selectedDate.getDate()
                 val formattedDate = dateFormat.format(selectedDate.time)
                 // Update the TextView to display the selected date with the "Selected Date: " prefix
 //                tvSelectedDate.text = "Selected Date: $formattedDate"

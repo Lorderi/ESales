@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
+import ru.lorderi.effectivesales.ui.data.Tickets
 import ru.lorderi.effectivesales.ui.repository.AirlineTicketRepository
 import ru.lorderi.effectivesales.ui.uistate.AirlineTicketsState
 
@@ -41,5 +42,18 @@ class AirlineTicketsViewModel(
                 }
             }
             .launchIn(viewModelScope)
+
+        repository.getTicketsList()
+            .onEach { ticketsList ->
+                _uiState.update {
+                    it.copy(ticketsList = ticketsList)
+                }
+            }
+            .launchIn(viewModelScope)
+
+    }
+
+    fun setTicketsList(tickets: Tickets) {
+        repository.setTicketsList(tickets)
     }
 }

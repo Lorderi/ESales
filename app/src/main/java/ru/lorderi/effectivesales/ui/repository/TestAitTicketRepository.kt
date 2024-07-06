@@ -3,11 +3,13 @@ package ru.lorderi.effectivesales.ui.repository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import ru.lorderi.effectivesales.ui.data.Offer
 import ru.lorderi.effectivesales.ui.data.Offers
 import ru.lorderi.effectivesales.ui.data.Price
 import ru.lorderi.effectivesales.ui.data.SearchOffer
 import ru.lorderi.effectivesales.ui.data.SearchOffers
+import ru.lorderi.effectivesales.ui.data.Tickets
 import ru.lorderi.effectivesales.ui.data.TicketsOffer
 import ru.lorderi.effectivesales.ui.data.TicketsOffers
 
@@ -95,8 +97,20 @@ class TestAitTicketRepository : AirlineTicketRepository {
         )
     )
 
+    private val ticketsList = MutableStateFlow(
+        Tickets(
+            emptyList()
+        )
+    )
+
     override fun getTickets(): Flow<Offers> = offerState.asStateFlow()
     override fun getSearchOffers(): Flow<SearchOffers> = searchState.asStateFlow()
 
     override fun getTicketsOffers(): Flow<TicketsOffers> = ticketsOffers.asStateFlow()
+    override fun getTicketsList(): Flow<Tickets> = ticketsList.asStateFlow()
+    override fun setTicketsList(tickets: Tickets) {
+        ticketsList.update {
+            tickets
+        }
+    }
 }

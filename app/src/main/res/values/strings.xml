@@ -18,7 +18,7 @@
     <string name="air_icon">air icon</string>
     <string name="city_avatar">city avatar</string>
     <string name="popular_route_label">Популярное направление</string>
-    <string name="cancel_label">cancel</string>
+    <string name="cancel_label">Cancel</string>
     <string name="route_icon">route icon</string>
     <string name="advanced_icon">advanced icon</string>
     <string name="escape_label">escape</string>
@@ -26,4 +26,5 @@
     <string name="filter_label">фильтры</string>
     <string name="direct_route_label">Прямые рейсы</string>
     <string name="check_all_tickets_label">Посмотреть все билеты</string>
+    <string name="passenger_counter_label">1,эконом</string>
 </resources>
