@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/airlineTicketsFragment"
-        android:name="ru.lorderi.effectivesales.ui.fragments.AirlineTicketsFragment"
+        android:name="ru.lorderi.airtickets.ui.fragments.AirlineTicketsFragment"
         android:label="fragment_airline_tickets"
         tools:layout="@layout/fragment_airline_tickets">
         <action
@@ -16,27 +16,27 @@
     </fragment>
     <fragment
         android:id="@+id/hotelsFragment"
-        android:name="ru.lorderi.effectivesales.ui.fragments.HotelsFragment"
+        android:name="ru.lorderi.hotels.ui.main.HotelsFragment"
         android:label="fragment_hotels"
         tools:layout="@layout/fragment_hotels" />
     <fragment
         android:id="@+id/shorterFragment"
-        android:name="ru.lorderi.effectivesales.ui.fragments.ShorterFragment"
+        android:name="ru.lorderi.shorter.ui.main.ShorterFragment"
         android:label="fragment_shorter"
         tools:layout="@layout/fragment_shorter" />
     <fragment
         android:id="@+id/subscriptionsFragment"
-        android:name="ru.lorderi.effectivesales.ui.fragments.SubscriptionsFragment"
+        android:name="ru.lorderi.subscriptions.ui.main.SubscriptionsFragment"
         android:label="fragment_subscriptions"
         tools:layout="@layout/fragment_subscriptions" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="ru.lorderi.effectivesales.ui.fragments.ProfileFragment"
+        android:name="ru.lorderi.profile.ui.main.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <dialog
         android:id="@+id/airlineTicketsBottomSheetDialog"
-        android:name="ru.lorderi.effectivesales.ui.fragments.AirlineTicketsBottomSheetDialog"
+        android:name="ru.lorderi.airtickets.ui.fragments.AirlineTicketsBottomSheetDialog"
         android:label="AirlineTicketsBottomSheetDialog">
         <action
             android:id="@+id/action_airlineTicketsBottomSheetDialog_to_airlineTicketsSearchFragment"
@@ -44,7 +44,7 @@
     </dialog>
     <fragment
         android:id="@+id/airlineTicketsSearchFragment"
-        android:name="ru.lorderi.effectivesales.ui.fragments.AirlineTicketsSearchFragment"
+        android:name="ru.lorderi.airtickets.ui.fragments.AirlineTicketsSearchFragment"
         android:label="fragment_airline_tickets_search"
         tools:layout="@layout/fragment_airline_tickets_search">
         <action
@@ -53,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/airlineTicketsListFragment"
-        android:name="ru.lorderi.effectivesales.ui.fragments.AirlineTicketsListFragment"
+        android:name="ru.lorderi.airtickets.ui.fragments.AirlineTicketsListFragment"
         android:label="fragment_airline_tickets_list"
         tools:layout="@layout/fragment_airline_tickets_list" />
 </navigation>
