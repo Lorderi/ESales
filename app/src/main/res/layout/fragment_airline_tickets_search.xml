@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".ui.fragments.AirlineTicketsSearchFragment">
 
@@ -13,12 +12,16 @@
         android:id="@+id/searchPanel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:cardBackgroundColor="#2F3035"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="13dp"
+        app:cardBackgroundColor="@color/darker_grey"
         app:layout_constraintBottom_toTopOf="@id/chipMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,14 +41,16 @@
                 app:layout_constraintTop_toTopOf="@id/cityFrom" />
 
             <EditText
+
                 android:id="@+id/cityFrom"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="16dp"
-                android:autofillHints="@string/from_label"
+                android:background="@android:color/transparent"
                 android:hint="@string/from_label"
-                android:inputType="text"
+                android:importantForAutofill="no"
+                android:inputType="textCapSentences|textAutoCorrect"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@id/cityTo"
                 app:layout_constraintEnd_toStartOf="@id/move"
@@ -64,15 +69,27 @@
                 app:layout_constraintStart_toEndOf="@id/cityFrom"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:dividerColor="@color/dark_grey"
+                app:layout_constraintBottom_toTopOf="@id/cityTo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/escape"
+                app:layout_constraintTop_toBottomOf="@id/cityFrom" />
+
             <EditText
                 android:id="@+id/cityTo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="16dp"
-                android:autofillHints="@string/to_label"
+                android:background="@android:color/transparent"
                 android:hint="@string/to_label"
-                android:inputType="text"
+                android:importantForAutofill="no"
+                android:inputType="textCapSentences|textAutoCorrect"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/cancel"
@@ -106,10 +123,11 @@
 
         <com.google.android.material.chip.ChipGroup
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp">
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/forward"
+                android:id="@+id/back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/back_label"
@@ -128,11 +146,11 @@
             <com.google.android.material.chip.Chip
                 android:id="@+id/passengerCounter"
                 android:layout_width="wrap_content"
-                android:text="@string/passenger_counter_label"
                 android:layout_height="wrap_content"
+                android:text="@string/passenger_counter_label"
                 app:chipBackgroundColor="#242529"
-                app:chipIcon="@drawable/ic_profile"
-                app:chipCornerRadius="50dp" />
+                app:chipCornerRadius="50dp"
+                app:chipIcon="@drawable/ic_profile" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/filter"
@@ -151,8 +169,11 @@
         android:id="@+id/popularPlate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:cardBackgroundColor="#2F3035"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        app:cardBackgroundColor="@color/darkest_grey"
         app:layout_constraintBottom_toTopOf="@id/showAllTickets"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -161,12 +182,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_marginBottom="8dp"
                 android:text="@string/direct_route_label"
                 android:textSize="20sp" />
 
@@ -174,7 +196,6 @@
                 android:id="@+id/cityList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/popular_route_card" />

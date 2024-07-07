@@ -8,3 +8,8 @@ fun Calendar.getDate(): String {
     val formatter = SimpleDateFormat("dd MMM, E", Locale("ru"))
     return formatter.format(this.time)
 }
+
+fun Calendar.getShorterDate(): String {
+    val formatter = SimpleDateFormat("dd MMMM", Locale("ru"))
+    return formatter.format(this.time)
+}

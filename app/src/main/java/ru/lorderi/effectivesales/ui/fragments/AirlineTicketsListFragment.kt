@@ -51,7 +51,7 @@ class AirlineTicketsListFragment : Fragment() {
             "$cityFrom-$cityTo".also { binding.route.text = it }
         }
 
-        "$currentDate,$passengerCounter".also { binding.dateAndPassengerCount.text = it }
+        "$currentDate, $passengerCounter пассажир".also { binding.dateAndPassengerCount.text = it }
 
 
         val adapter = AirlineTicketsListAdapter()

@@ -13,6 +13,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import ru.lorderi.effectivesales.R
@@ -24,9 +26,8 @@ import ru.lorderi.effectivesales.ui.itemdecoration.OffsetDecoration
 import ru.lorderi.effectivesales.ui.repository.TestAitTicketRepository
 import ru.lorderi.effectivesales.ui.viewmodel.AirlineTicketsViewModel
 import ru.lorderi.effectivesales.util.getDate
-import java.text.SimpleDateFormat
+import ru.lorderi.effectivesales.util.getShorterDate
 import java.util.Calendar
-import java.util.Locale
 
 
 class AirlineTicketsSearchFragment : Fragment() {
@@ -65,7 +66,11 @@ class AirlineTicketsSearchFragment : Fragment() {
 
         binding.cityList.adapter = adapter
 
-        bind(binding)
+        bind(binding, viewModel)
+
+        val divider = DividerItemDecoration(requireContext(), VERTICAL)
+
+        binding.cityList.addItemDecoration(divider)
 
         viewModel.uiState
             .flowWithLifecycle(lifecycle)
@@ -77,7 +82,13 @@ class AirlineTicketsSearchFragment : Fragment() {
         return binding.root
     }
 
-    private fun bind(binding: FragmentAirlineTicketsSearchBinding) {
+    private fun bind(
+        binding: FragmentAirlineTicketsSearchBinding,
+        viewModel: AirlineTicketsViewModel,
+    ) {
+        val passengerCounter = viewModel.getPassengerCounter()
+        "$passengerCounter,эконом".also { binding.passengerCounter.text = it }
+
         binding.move.setOnClickListener {
             val from = binding.cityFrom.text
             val to = binding.cityTo.text
@@ -85,14 +96,35 @@ class AirlineTicketsSearchFragment : Fragment() {
             binding.cityTo.text = from
         }
 
-        binding.currentDate.text = calendar.getDate()
+        val currentDate = viewModel.getCurrentDate()
 
-        binding.forward.setOnClickListener {
-            showDatePicker(binding)
+        if (currentDate != null) {
+            binding.currentDate.text = currentDate.getDate()
+        } else {
+            viewModel.setCurrentDate(calendar)
+            binding.currentDate.text = calendar.getDate()
+        }
+
+        val backDate = viewModel.getBackwardDate()
+
+        if (backDate != null) {
+            binding.back.text = backDate.getDate()
+        }
+
+        binding.back.setOnClickListener {
+            showDatePicker { selectedDate ->
+                val date = selectedDate.getDate()
+                binding.back.text = date
+                viewModel.setBackwardDate(selectedDate)
+            }
         }
 
         binding.currentDate.setOnClickListener {
-            showDatePicker(binding)
+            showDatePicker { selectedDate ->
+                val date = selectedDate.getDate()
+                binding.currentDate.text = date
+                viewModel.setCurrentDate(selectedDate)
+            }
         }
 
         binding.cityList.addItemDecoration(OffsetDecoration(16, 16))
@@ -111,34 +143,24 @@ class AirlineTicketsSearchFragment : Fragment() {
                     bundleOf(
                         CITY_TO to binding.cityTo.text.toString(),
                         CITY_FROM to binding.cityFrom.text.toString(),
-                        CURRENT_DATE to binding.currentDate.text.toString(),
-                        PASSENGER_COUNTER to binding.passengerCounter.text.toString()
+                        CURRENT_DATE to viewModel.getCurrentDate()?.getShorterDate(),
+                        PASSENGER_COUNTER to viewModel.getPassengerCounter().toString()
                     )
                 )
         }
     }
 
-    private fun showDatePicker(binding: FragmentAirlineTicketsSearchBinding) {
-        // Create a DatePickerDialog
+    private fun showDatePicker(listener: (date: Calendar) -> Unit) {
         val datePickerDialog = DatePickerDialog(
-            requireContext(), { DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
-                // Create a new Calendar instance to hold the selected date
+            requireContext(), { _, year: Int, monthOfYear: Int, dayOfMonth: Int ->
                 val selectedDate = Calendar.getInstance()
-                // Set the selected date using the values received from the DatePicker dialog
                 selectedDate.set(year, monthOfYear, dayOfMonth)
-                // Create a SimpleDateFormat to format the date as "dd/MM/yyyy"
-                val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-                // Format the selected date into a string
-                binding.currentDate.text = selectedDate.getDate()
-                val formattedDate = dateFormat.format(selectedDate.time)
-                // Update the TextView to display the selected date with the "Selected Date: " prefix
-//                tvSelectedDate.text = "Selected Date: $formattedDate"
+                listener(selectedDate)
             },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
             calendar.get(Calendar.DAY_OF_MONTH)
         )
-        // Show the DatePicker dialog
         datePickerDialog.show()
     }
 }

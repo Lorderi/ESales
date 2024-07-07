@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:cardBackgroundColor="#1D1E20">
+        app:cardBackgroundColor="@color/darkest_grey">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,6 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:textStyle="italic"
                 app:layout_constraintBottom_toTopOf="@id/airportTop"
                 app:layout_constraintEnd_toStartOf="@id/range"
                 app:layout_constraintStart_toEndOf="@id/routeIcon"
@@ -71,6 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="9dp"
+                android:textStyle="italic"
                 app:layout_constraintBottom_toTopOf="@id/airportTop"
                 app:layout_constraintEnd_toStartOf="@id/routeLong"
                 app:layout_constraintStart_toEndOf="@id/range"
@@ -139,13 +141,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/grey"
+                android:textStyle="italic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/timeFrom"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="@id/timeFrom"
                 app:layout_constraintTop_toBottomOf="@id/timeBottom"
-                app:layout_constraintVertical_bias="0.47"
                 tools:text="VKO" />
 
             <TextView
@@ -153,12 +155,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/grey"
+                android:textStyle="italic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/timeTo"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@id/timeTo"
                 app:layout_constraintTop_toBottomOf="@id/timeBottom"
-                app:layout_constraintVertical_bias="0.484"
                 tools:text="AER" />
 
             <androidx.constraintlayout.widget.Barrier

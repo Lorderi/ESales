@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.update
 import ru.lorderi.effectivesales.ui.data.Tickets
 import ru.lorderi.effectivesales.ui.repository.AirlineTicketRepository
 import ru.lorderi.effectivesales.ui.uistate.AirlineTicketsState
+import java.util.Calendar
 
 class AirlineTicketsViewModel(
     private val repository: AirlineTicketRepository
@@ -56,4 +57,26 @@ class AirlineTicketsViewModel(
     fun setTicketsList(tickets: Tickets) {
         repository.setTicketsList(tickets)
     }
+
+    fun setPassengerCounter(count: Int) {
+        _uiState.update {
+            it.copy(counterPassenger = count)
+        }
+    }
+
+    fun getPassengerCounter() = _uiState.value.counterPassenger
+    fun setCurrentDate(date: Calendar) {
+        _uiState.update {
+            it.copy(currentDate = date)
+        }
+    }
+
+    fun getCurrentDate() = _uiState.value.currentDate
+    fun setBackwardDate(date: Calendar) {
+        _uiState.update {
+            it.copy(backDate = date)
+        }
+    }
+
+    fun getBackwardDate() = _uiState.value.backDate
 }
