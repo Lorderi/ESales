@@ -27,4 +27,21 @@
     <string name="direct_route_label">Прямые рейсы</string>
     <string name="check_all_tickets_label">Посмотреть все билеты</string>
     <string name="passenger_counter_label">1,эконом</string>
+    <string name="range_label"> - </string>
+    <string name="route_background_label">route background</string>
+    <string name="route_label">route</string>
+    <string name="hardcore_route_label">Сложный маршрут</string>
+    <string name="globe_background_label">globe background</string>
+    <string name="globe_icon_label">globe icon</string>
+    <string name="anywhere_label">Куда угодно</string>
+    <string name="calendar_background_label">calendar background</string>
+    <string name="calendar_icon_label">calendar icon</string>
+    <string name="weekend_label">Выходные</string>
+    <string name="fire_background_label">fire background</string>
+    <string name="fire_icon_label">fire icon</string>
+    <string name="fire_tickets_label">Горячие билеты</string>
+    <string name="prices_label">График цен</string>
+    <string name="filter_label_second">Фильтр</string>
+    <string name="barrier_label">/</string>
+    <string name="transit_type_label">Без пересадок</string>
 </resources>

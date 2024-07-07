@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
@@ -29,6 +30,11 @@ import java.util.Locale
 
 
 class AirlineTicketsSearchFragment : Fragment() {
+    companion object {
+        const val CURRENT_DATE = "currentDate"
+        const val PASSENGER_COUNTER = "passengerCounter"
+    }
+
     private val calendar = Calendar.getInstance()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,7 +70,7 @@ class AirlineTicketsSearchFragment : Fragment() {
         viewModel.uiState
             .flowWithLifecycle(lifecycle)
             .onEach {
-                adapter.submitList(it.ticketsOffers.ticketsOffer)
+                adapter.submitList(it.ticketsOffers.ticketsOffer.take(3))
             }
             .launchIn(lifecycleScope)
 
@@ -100,7 +106,15 @@ class AirlineTicketsSearchFragment : Fragment() {
         }
         binding.showAllTickets.setOnClickListener {
             findNavController()
-                .navigate(R.id.action_airlineTicketsSearchFragment_to_airlineTicketsListFragment)
+                .navigate(
+                    R.id.action_airlineTicketsSearchFragment_to_airlineTicketsListFragment,
+                    bundleOf(
+                        CITY_TO to binding.cityTo.text.toString(),
+                        CITY_FROM to binding.cityFrom.text.toString(),
+                        CURRENT_DATE to binding.currentDate.text.toString(),
+                        PASSENGER_COUNTER to binding.passengerCounter.text.toString()
+                    )
+                )
         }
     }
 

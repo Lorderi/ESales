@@ -16,8 +16,12 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.serialization.json.Json
 import ru.lorderi.effectivesales.R
 import ru.lorderi.effectivesales.databinding.FragmentAirlineTicketsListBinding
-import ru.lorderi.effectivesales.ui.adapter.searchoffers.AirlineTicketsListAdapter
+import ru.lorderi.effectivesales.ui.adapter.airlineticketslist.AirlineTicketsListAdapter
 import ru.lorderi.effectivesales.ui.data.Tickets
+import ru.lorderi.effectivesales.ui.fragments.AirlineTicketsFragment.Companion.CITY_FROM
+import ru.lorderi.effectivesales.ui.fragments.AirlineTicketsFragment.Companion.CITY_TO
+import ru.lorderi.effectivesales.ui.fragments.AirlineTicketsSearchFragment.Companion.CURRENT_DATE
+import ru.lorderi.effectivesales.ui.fragments.AirlineTicketsSearchFragment.Companion.PASSENGER_COUNTER
 import ru.lorderi.effectivesales.ui.itemdecoration.OffsetDecoration
 import ru.lorderi.effectivesales.ui.repository.TestAitTicketRepository
 import ru.lorderi.effectivesales.ui.viewmodel.AirlineTicketsViewModel
@@ -37,6 +41,18 @@ class AirlineTicketsListFragment : Fragment() {
                 }
             }
         }
+
+        val cityTo = arguments?.getString(CITY_TO)
+        val cityFrom = arguments?.getString(CITY_FROM)
+        val currentDate = arguments?.getString(CURRENT_DATE)
+        val passengerCounter = arguments?.getString(PASSENGER_COUNTER)
+
+        if (cityTo != null && cityFrom != null) {
+            "$cityFrom-$cityTo".also { binding.route.text = it }
+        }
+
+        "$currentDate,$passengerCounter".also { binding.dateAndPassengerCount.text = it }
+
 
         val adapter = AirlineTicketsListAdapter()
 

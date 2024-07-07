@@ -111,6 +111,7 @@
         app:layout_constraintEnd_toStartOf="@id/globeBackground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchPanel"
+        android:contentDescription="@string/route_background_label"
         app:tint="#3A633B" />
 
     <ImageView
@@ -121,13 +122,14 @@
         app:layout_constraintBottom_toBottomOf="@id/routeBackground"
         app:layout_constraintEnd_toEndOf="@id/routeBackground"
         app:layout_constraintStart_toStartOf="@id/routeBackground"
+        android:contentDescription="@string/route_label"
         app:layout_constraintTop_toTopOf="@id/routeBackground" />
 
     <TextView
         android:id="@+id/routeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Сложный маршрут"
+        android:text="@string/hardcore_route_label"
         app:layout_constraintBottom_toTopOf="@id/cityPlate"
         app:layout_constraintEnd_toStartOf="@id/globeLabel"
         app:layout_constraintStart_toStartOf="parent"
@@ -142,6 +144,7 @@
         app:layout_constraintEnd_toStartOf="@id/calendarBackground"
         app:layout_constraintStart_toEndOf="@id/routeBackground"
         app:layout_constraintTop_toBottomOf="@id/searchPanel"
+        android:contentDescription="@string/globe_background_label"
         app:tint="#2261BC" />
 
 
@@ -153,13 +156,14 @@
         app:layout_constraintBottom_toBottomOf="@id/globeBackground"
         app:layout_constraintEnd_toEndOf="@id/globeBackground"
         app:layout_constraintStart_toStartOf="@id/globeBackground"
+        android:contentDescription="@string/globe_icon_label"
         app:layout_constraintTop_toTopOf="@id/globeBackground" />
 
     <TextView
         android:id="@+id/globeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Куда угодно"
+        android:text="@string/anywhere_label"
         app:layout_constraintBottom_toTopOf="@id/cityPlate"
         app:layout_constraintEnd_toStartOf="@id/calendarLabel"
         app:layout_constraintStart_toEndOf="@id/routeLabel"
@@ -174,6 +178,7 @@
         app:layout_constraintEnd_toStartOf="@id/fireBackground"
         app:layout_constraintStart_toEndOf="@id/globeBackground"
         app:layout_constraintTop_toBottomOf="@id/searchPanel"
+        android:contentDescription="@string/calendar_background_label"
         app:tint="#00427D" />
 
 
@@ -185,13 +190,14 @@
         app:layout_constraintBottom_toBottomOf="@id/calendarBackground"
         app:layout_constraintEnd_toEndOf="@id/calendarBackground"
         app:layout_constraintStart_toStartOf="@id/calendarBackground"
+        android:contentDescription="@string/calendar_icon_label"
         app:layout_constraintTop_toTopOf="@id/calendarBackground" />
 
     <TextView
         android:id="@+id/calendarLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Выходные"
+        android:text="@string/weekend_label"
         app:layout_constraintBottom_toTopOf="@id/cityPlate"
         app:layout_constraintEnd_toStartOf="@id/fireLabel"
         app:layout_constraintStart_toEndOf="@id/globeLabel"
@@ -206,6 +212,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/calendarBackground"
         app:layout_constraintTop_toBottomOf="@id/searchPanel"
+        android:contentDescription="@string/fire_background_label"
         app:tint="#FF5E5E" />
 
 
@@ -217,13 +224,14 @@
         app:layout_constraintBottom_toBottomOf="@id/fireBackground"
         app:layout_constraintEnd_toEndOf="@id/fireBackground"
         app:layout_constraintStart_toStartOf="@id/fireBackground"
+        android:contentDescription="@string/fire_icon_label"
         app:layout_constraintTop_toTopOf="@id/fireBackground" />
 
     <TextView
         android:id="@+id/fireLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Горячие билеты"
+        android:text="@string/fire_tickets_label"
         app:layout_constraintBottom_toTopOf="@id/cityPlate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/calendarLabel"

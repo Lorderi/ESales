@@ -28,7 +28,7 @@
 
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:cardBackgroundColor="#2F3035"
+        app:cardBackgroundColor="@color/darker_grey"
         app:layout_constraintBottom_toTopOf="@id/centerLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            app:cardBackgroundColor="#3E3F43">
+            app:cardBackgroundColor="@color/dark_grey">
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -129,7 +129,7 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="italic"
-        app:backgroundTint="#2F3035"
+        app:backgroundTint="@color/darker_grey"
         app:layout_constraintBottom_toTopOf="@id/bottomLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

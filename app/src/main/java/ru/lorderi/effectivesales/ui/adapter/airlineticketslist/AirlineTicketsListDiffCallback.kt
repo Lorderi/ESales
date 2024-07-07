@@ -1,4 +1,4 @@
-package ru.lorderi.effectivesales.ui.adapter.searchoffers
+package ru.lorderi.effectivesales.ui.adapter.airlineticketslist
 
 import androidx.recyclerview.widget.DiffUtil
 import ru.lorderi.effectivesales.ui.data.Ticket

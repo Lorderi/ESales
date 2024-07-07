@@ -55,7 +55,9 @@ class AirlineTicketsBottomSheetDialog : BottomSheetDialogFragment() {
             binding.cityFrom.setText(cityFrom)
         }
 
-        val adapter = SearchOffersAdapter()
+        val adapter = SearchOffersAdapter { city ->
+            binding.cityTo.setText(city)
+        }
 
         binding.cityList.adapter = adapter
 

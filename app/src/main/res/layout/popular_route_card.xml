@@ -9,11 +9,11 @@
         android:id="@+id/routeIcon"
         android:layout_width="24dp"
         android:layout_height="24dp"
+        android:contentDescription="@string/route_icon"
         android:src="@drawable/popular_route_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/title"
         app:layout_constraintStart_toStartOf="parent"
-        android:contentDescription="@string/route_icon"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@id/timeLine"
+        app:layout_constraintBottom_toTopOf="@id/time"
         app:layout_constraintEnd_toStartOf="@id/price"
         app:layout_constraintStart_toEndOf="@id/routeIcon"
         app:layout_constraintTop_toTopOf="parent"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:textColor="#2261BC"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@id/timeLine"
+        app:layout_constraintBottom_toTopOf="@id/time"
         app:layout_constraintEnd_toStartOf="@id/advancedIcon"
         app:layout_constraintStart_toEndOf="@id/title"
         app:layout_constraintTop_toTopOf="parent"
@@ -44,11 +44,11 @@
         android:id="@+id/advancedIcon"
         android:layout_width="16dp"
         android:layout_height="16dp"
+        android:contentDescription="@string/advanced_icon"
         android:src="@drawable/ic_advanced"
-        app:layout_constraintBottom_toTopOf="@id/timeLine"
+        app:layout_constraintBottom_toTopOf="@id/time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/price"
-        android:contentDescription="@string/advanced_icon"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Barrier
@@ -58,25 +58,20 @@
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="title, price" />
 
-    <HorizontalScrollView
-        android:id="@+id/timeLine"
-        android:layout_width="wrap_content"
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:textAlignment="viewStart"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/routeIcon"
         app:layout_constraintTop_toBottomOf="@id/header"
-        app:layout_constraintVertical_bias="0.0">
+        tools:text="11:30" />
 
-        <LinearLayout
-            android:id="@+id/time"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:orientation="horizontal" />
-
-    </HorizontalScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
