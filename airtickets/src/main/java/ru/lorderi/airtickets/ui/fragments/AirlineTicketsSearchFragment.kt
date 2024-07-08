@@ -127,10 +127,10 @@ class AirlineTicketsSearchFragment : Fragment() {
                 .navigate(
                     R.id.action_airlineTicketsSearchFragment_to_airlineTicketsListFragment,
                     bundleOf(
-                        CITY_TO to binding.cityTo.text.toString(),
-                        CITY_FROM to binding.cityFrom.text.toString(),
-                        CURRENT_DATE to viewModel.getCurrentDate()?.getShorterDate(),
-                        PASSENGER_COUNTER to viewModel.getPassengerCounter().toString()
+                        CITY_TO to binding.cityTo.text.toString().trim(),
+                        CITY_FROM to binding.cityFrom.text.toString().trim(),
+                        CURRENT_DATE to viewModel.getCurrentDate()?.getShorterDate()?.trim(),
+                        PASSENGER_COUNTER to viewModel.getPassengerCounter().toString().trim()
                     )
                 )
         }

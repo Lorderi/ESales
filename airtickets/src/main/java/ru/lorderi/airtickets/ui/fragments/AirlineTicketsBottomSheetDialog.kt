@@ -104,8 +104,8 @@ class AirlineTicketsBottomSheetDialog : BottomSheetDialogFragment() {
                         .navigate(
                             R.id.action_airlineTicketsBottomSheetDialog_to_airlineTicketsSearchFragment,
                             bundleOf(
-                                CITY_TO to binding.cityTo.text.toString(),
-                                CITY_FROM to binding.cityFrom.text.toString()
+                                CITY_TO to binding.cityTo.text.toString().trim(),
+                                CITY_FROM to binding.cityFrom.text.toString().trim()
                             )
                         )
                 }

@@ -43,7 +43,6 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="4dp"
         android:textColor="#2261BC"
-        android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@id/time"
         app:layout_constraintEnd_toStartOf="@id/advancedIcon"
         app:layout_constraintStart_toEndOf="@id/title"
