@@ -20,6 +20,8 @@
         app:layout_constraintVertical_bias="0.193" />
 
     <TextView
+        style="@style/title4_italic"
+        android:textColor="@color/white"
         android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -37,7 +39,7 @@
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        style="@style/title4_italic"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="4dp"
         android:textColor="#2261BC"
@@ -71,6 +73,8 @@
 
 
     <TextView
+        style="@style/text2"
+        android:textColor="@color/white"
         android:id="@+id/time"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

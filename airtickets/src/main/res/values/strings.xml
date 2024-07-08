@@ -26,7 +26,7 @@
     <string name="direct_route_label">Прямые рейсы</string>
     <string name="check_all_tickets_label">Посмотреть все билеты</string>
     <string name="passenger_counter_label">1,эконом</string>
-    <string name="range_label"> - </string>
+    <string name="range_label">—</string>
     <string name="route_background_label">route background</string>
     <string name="route_label">route</string>
     <string name="hardcore_route_label">Сложный маршрут</string>

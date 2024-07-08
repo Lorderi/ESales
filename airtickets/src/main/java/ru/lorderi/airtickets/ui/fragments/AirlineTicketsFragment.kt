@@ -49,7 +49,7 @@ class AirlineTicketsFragment : Fragment() {
 
         binding.musicList.adapter = adapter
 
-        binding.musicList.addItemDecoration(OffsetDecoration(8, 16, 8, 67))
+        binding.musicList.addItemDecoration(OffsetDecoration(8, 50, 0, 120))
 
         viewModel.uiState
             .flowWithLifecycle(lifecycle)

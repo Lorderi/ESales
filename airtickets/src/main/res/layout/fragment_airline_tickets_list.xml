@@ -44,11 +44,13 @@
 
                 <TextView
                     android:id="@+id/route"
+                    style="@style/title3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="4dp"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toTopOf="@id/dateAndPassengerCount"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -57,8 +59,8 @@
                     tools:text="Москва-Сочи" />
 
                 <TextView
-
                     android:id="@+id/dateAndPassengerCount"
+                    style="@style/title4_italic"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -100,16 +102,20 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/filter"
             style="?android:attr/buttonBarButtonStyle"
+            android:id="@+id/filter"
+            android:drawableTint="#000000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:backgroundTint="@color/blue"
             android:padding="10dp"
             android:text="@string/filter_label_second"
+            android:textAppearance="@style/title4"
+            android:textStyle="normal"
             android:textColor="@color/white"
-            app:icon="@drawable/ic_settings" />
+            app:icon="@drawable/ic_settings"
+            app:iconTint="@color/white" />
 
         <Button
             android:id="@+id/prices"
@@ -120,8 +126,10 @@
             android:backgroundTint="@color/blue"
             android:padding="10dp"
             android:text="@string/prices_label"
+            android:textAppearance="@style/title4_italic"
             android:textColor="@color/white"
-            app:icon="@drawable/ic_graph" />
+            app:icon="@drawable/ic_graph"
+            app:iconTint="@color/white" />
     </LinearLayout>
 
 

@@ -9,6 +9,7 @@
 
     <TextView
         android:id="@+id/searchLabel"
+        style="@style/title1_bold"
         android:layout_width="172dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="94dp"
@@ -16,7 +17,7 @@
         android:layout_marginEnd="94dp"
         android:text="@string/search_advanced_label"
         android:textAlignment="center"
-        android:textSize="22sp"
+        android:textColor="@color/light_light_grey"
         app:layout_constraintBottom_toTopOf="@id/searchPanel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +60,8 @@
                     android:src="@drawable/ic_search"
                     app:layout_constraintBottom_toBottomOf="@id/cityTo"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/cityFrom" />
+                    app:layout_constraintTop_toTopOf="@id/cityFrom"
+                    app:tint="@color/pre_white" />
 
                 <EditText
                     android:id="@+id/cityFrom"
@@ -71,7 +73,8 @@
                     android:hint="@string/from_label"
                     android:importantForAutofill="no"
                     android:inputType="textCapSentences|textAutoCorrect"
-                    android:textSize="16sp"
+                    style="@style/button_text1"
+                    android:textColor="@color/white"
                     app:layout_constraintBottom_toTopOf="@id/cityTo"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/searchIcon"
@@ -97,9 +100,12 @@
                     android:layout_marginEnd="16dp"
                     android:background="@android:color/transparent"
                     android:focusable="false"
+                    style="@style/button_text1"
+                    android:fontFamily="@font/sf_pro_display_regular"
                     android:hint="@string/to_label"
                     android:importantForAutofill="no"
                     android:inputType="textCapSentences|textAutoCorrect"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -112,12 +118,13 @@
 
     <TextView
         android:id="@+id/centerLabel"
+        style="@style/title1_bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="19dp"
         android:text="@string/center_label"
         android:textAlignment="viewStart"
-        android:textSize="22sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/musicList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.087"

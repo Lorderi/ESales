@@ -21,6 +21,8 @@
             android:layout_height="wrap_content">
 
             <TextView
+                style="@style/title1_default"
+                android:textColor="@color/white"
                 android:id="@+id/price"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -48,13 +50,14 @@
                 app:tint="@color/red" />
 
             <TextView
+                style="@style/title4_italic"
+                android:textColor="@color/white"
                 android:id="@+id/timeFrom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="4dp"
-                android:textStyle="italic"
                 app:layout_constraintBottom_toTopOf="@id/airportTop"
                 app:layout_constraintEnd_toStartOf="@id/range"
                 app:layout_constraintStart_toEndOf="@id/routeIcon"
@@ -65,8 +68,7 @@
                 android:id="@+id/range"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-
+                android:layout_marginStart="4dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="4dp"
                 android:text="@string/range_label"
@@ -78,13 +80,13 @@
 
             <TextView
                 android:id="@+id/timeTo"
-
+                style="@style/title4_italic"
+                android:layout_marginStart="4dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="9dp"
+                android:textColor="@color/white"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="4dp"
-                android:textStyle="italic"
                 app:layout_constraintBottom_toTopOf="@id/airportTop"
                 app:layout_constraintEnd_toStartOf="@id/routeLong"
                 app:layout_constraintStart_toEndOf="@id/range"
@@ -92,6 +94,8 @@
                 tools:text="07:10" />
 
             <TextView
+                style="@style/text2"
+                android:textColor="@color/white"
                 android:id="@+id/routeLong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -105,6 +109,7 @@
                 tools:text="4ч в пути" />
 
             <TextView
+                style="@style/text2"
                 android:id="@+id/symBarrier"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -119,6 +124,8 @@
                 app:layout_constraintTop_toBottomOf="@id/price" />
 
             <TextView
+                style="@style/text2"
+                android:textColor="@color/white"
                 android:id="@+id/transitType"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -155,12 +162,12 @@
                 app:constraint_referenced_ids="timeFrom, timeTo, range, routeLong, symBarrier, transitType" />
 
             <TextView
+                style="@style/title4_italic"
                 android:id="@+id/airportFrom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:textColor="@color/grey"
-                android:textStyle="italic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/timeFrom"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -170,13 +177,12 @@
                 tools:text="VKO" />
 
             <TextView
+                style="@style/title4_italic"
                 android:id="@+id/airportTo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:textColor="@color/grey"
-
-                android:textStyle="italic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/timeTo"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -209,6 +215,8 @@
         android:backgroundTint="@color/blue">
 
         <TextView
+            style="@style/title4_italic"
+            android:textColor="@color/white"
             android:id="@+id/badgeLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -216,7 +224,6 @@
             android:layout_marginTop="2dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="2dp"
-            android:textStyle="italic"
             tools:text="Самый удобный" />
 
     </com.google.android.material.card.MaterialCardView>

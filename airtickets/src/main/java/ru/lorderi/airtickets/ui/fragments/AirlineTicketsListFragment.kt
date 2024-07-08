@@ -59,7 +59,7 @@ class AirlineTicketsListFragment : Fragment() {
 
         "$currentDate, $passengerCounter пассажир".also { binding.dateAndPassengerCount.text = it }
 
-        binding.ticketList.addItemDecoration(OffsetDecoration(0, 16, 16, 16))
+        binding.ticketList.addItemDecoration(OffsetDecoration(0, 50, 0, 50))
 
         binding.escape.setOnClickListener {
             requireParentFragment().findNavController().navigateUp()
