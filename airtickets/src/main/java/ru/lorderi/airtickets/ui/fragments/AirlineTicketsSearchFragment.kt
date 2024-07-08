@@ -1,10 +1,12 @@
 package ru.lorderi.airtickets.ui.fragments
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.edit
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -17,9 +19,11 @@ import kotlinx.coroutines.flow.onEach
 import ru.lorderi.airtickets.R
 import ru.lorderi.airtickets.databinding.FragmentAirlineTicketsSearchBinding
 import ru.lorderi.airtickets.ui.adapter.popularroute.PopularRouteAdapter
+import ru.lorderi.airtickets.ui.fragments.AirlineTicketsFragment.Companion.AIR_TICKETS
 import ru.lorderi.airtickets.ui.fragments.AirlineTicketsFragment.Companion.CITY_FROM
 import ru.lorderi.airtickets.ui.fragments.AirlineTicketsFragment.Companion.CITY_TO
 import ru.lorderi.airtickets.ui.itemdecoration.OffsetDecoration
+import ru.lorderi.airtickets.ui.util.CyrillicInputFilter
 import ru.lorderi.airtickets.ui.util.getDate
 import ru.lorderi.airtickets.ui.util.getShorterDate
 import ru.lorderi.airtickets.ui.viewmodel.AirlineTicketsViewModel
@@ -32,12 +36,13 @@ class AirlineTicketsSearchFragment : Fragment() {
         const val PASSENGER_COUNTER = "passengerCounter"
     }
 
+    private lateinit var binding: FragmentAirlineTicketsSearchBinding
     private val calendar = Calendar.getInstance()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentAirlineTicketsSearchBinding.inflate(inflater, container, false)
+        binding = FragmentAirlineTicketsSearchBinding.inflate(inflater, container, false)
 
         val cityTo = arguments?.getString(CITY_TO)
         val cityFrom = arguments?.getString(CITY_FROM)
@@ -72,6 +77,9 @@ class AirlineTicketsSearchFragment : Fragment() {
         binding: FragmentAirlineTicketsSearchBinding,
         viewModel: AirlineTicketsViewModel,
     ) {
+        binding.cityFrom.filters = arrayOf(CyrillicInputFilter())
+        binding.cityTo.filters = arrayOf(CyrillicInputFilter())
+
         val passengerCounter = viewModel.getPassengerCounter()
         "$passengerCounter,эконом".also { binding.passengerCounter.text = it }
 
@@ -136,6 +144,14 @@ class AirlineTicketsSearchFragment : Fragment() {
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        val sharedPref = requireActivity().getSharedPreferences(AIR_TICKETS, Context.MODE_PRIVATE)
+        sharedPref.edit {
+            putString(CITY_TO, binding.cityTo.text.toString())
+            putString(CITY_FROM, binding.cityFrom.text.toString())
+        }
+    }
     private fun showDatePicker(listener: (date: Calendar) -> Unit) {
         val datePickerDialog = DatePickerDialog(
             requireContext(), { _, year: Int, monthOfYear: Int, dayOfMonth: Int ->

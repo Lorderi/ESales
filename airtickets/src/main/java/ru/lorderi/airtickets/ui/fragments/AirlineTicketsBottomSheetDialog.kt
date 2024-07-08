@@ -1,12 +1,14 @@
 package ru.lorderi.airtickets.ui.fragments
 
 import android.app.Dialog
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.edit
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
@@ -21,18 +23,22 @@ import kotlinx.coroutines.flow.onEach
 import ru.lorderi.airtickets.R
 import ru.lorderi.airtickets.databinding.AirlineTicketsBottomSheetBinding
 import ru.lorderi.airtickets.ui.adapter.searchoffers.SearchOffersAdapter
+import ru.lorderi.airtickets.ui.fragments.AirlineTicketsFragment.Companion.AIR_TICKETS
 import ru.lorderi.airtickets.ui.fragments.AirlineTicketsFragment.Companion.CITY_FROM
 import ru.lorderi.airtickets.ui.fragments.AirlineTicketsFragment.Companion.CITY_TO
 import ru.lorderi.airtickets.ui.itemdecoration.OffsetDecoration
+import ru.lorderi.airtickets.ui.util.CyrillicInputFilter
 import ru.lorderi.airtickets.ui.viewmodel.AirlineTicketsViewModel
 
 @AndroidEntryPoint
 class AirlineTicketsBottomSheetDialog : BottomSheetDialogFragment() {
+    private lateinit var binding: AirlineTicketsBottomSheetBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = AirlineTicketsBottomSheetBinding.inflate(inflater, container, false)
+        binding = AirlineTicketsBottomSheetBinding.inflate(inflater, container, false)
 
         val cityTo = arguments?.getString(CITY_TO)
         val cityFrom = arguments?.getString(CITY_FROM)
@@ -68,6 +74,9 @@ class AirlineTicketsBottomSheetDialog : BottomSheetDialogFragment() {
     private fun bind(
         binding: AirlineTicketsBottomSheetBinding,
     ) {
+        binding.cityFrom.filters = arrayOf(CyrillicInputFilter())
+        binding.cityTo.filters = arrayOf(CyrillicInputFilter())
+
         binding.cityList.addItemDecoration(OffsetDecoration(0, 0, 8, 0))
 
         binding.cancel.setOnClickListener {
@@ -132,5 +141,14 @@ class AirlineTicketsBottomSheetDialog : BottomSheetDialogFragment() {
             }
         }
         return super.onCreateDialog(savedInstanceState)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        val sharedPref = requireActivity().getSharedPreferences(AIR_TICKETS, Context.MODE_PRIVATE)
+        sharedPref.edit {
+            putString(CITY_TO, binding.cityTo.text.toString())
+            putString(CITY_FROM, binding.cityFrom.text.toString())
+        }
     }
 }

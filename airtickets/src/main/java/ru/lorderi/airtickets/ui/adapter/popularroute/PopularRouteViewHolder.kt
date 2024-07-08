@@ -16,7 +16,7 @@ class PopularRouteViewHolder(
 
         val time = StringBuilder()
         ticketsOffer.timeRange.forEach { timeRange ->
-            time.append("$timeRange ")
+            time.append("$timeRange  ")
         }
         binding.time.text = time.toString()
         binding.routeIcon.setImageResource(color)

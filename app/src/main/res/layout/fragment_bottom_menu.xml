@@ -17,10 +17,13 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomMenu"
-        android:layout_width="wrap_content"
+
+        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
         android:layout_height="wrap_content"
-        app:itemTextAppearanceActive="@style/bottomNavigationView"
-        app:itemTextAppearanceInactive="@style/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:background="@color/pre_black"
+        app:itemIconTint="@drawable/bottom_nav_icon_color_selector"
+        app:itemTextColor="@drawable/bottom_nav_icon_color_selector"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_navigation_menu" />
 
