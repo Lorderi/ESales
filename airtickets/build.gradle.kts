@@ -2,8 +2,8 @@ plugins {
     id("com.android.library")
     alias(libs.plugins.jetbrainsKotlinAndroid)
     kotlin("plugin.serialization") version "2.0.0"
-//    id("com.google.dagger.hilt.android")
-//    id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -34,6 +34,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -50,9 +51,17 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.kotlinx.serialization.json)
-//    implementation(libs.hilt.android)
-//    ksp(libs.dagger.compiler)
-//    ksp(libs.hilt.compiler)
+
+    implementation(libs.hilt.android)
+    ksp(libs.dagger.compiler)
+    ksp(libs.hilt.compiler)
+
+    implementation(libs.retrofit)
+    implementation(libs.retrofit2.kotlinx.serialization.converter)
+
+    implementation(platform(libs.okhttp.bom))
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

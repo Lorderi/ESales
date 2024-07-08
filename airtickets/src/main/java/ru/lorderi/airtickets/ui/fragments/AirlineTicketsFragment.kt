@@ -9,19 +9,17 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewmodel.initializer
-import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import ru.lorderi.airtickets.R
 import ru.lorderi.airtickets.databinding.FragmentAirlineTicketsBinding
 import ru.lorderi.airtickets.ui.adapter.airlinetickets.AirlineTicketsAdapter
 import ru.lorderi.airtickets.ui.itemdecoration.OffsetDecoration
-import ru.lorderi.airtickets.ui.repository.TestAitTicketRepository
 import ru.lorderi.airtickets.ui.viewmodel.AirlineTicketsViewModel
 
-
+@AndroidEntryPoint
 class AirlineTicketsFragment : Fragment() {
     companion object {
         const val CITY_TO = "cityTo"
@@ -37,13 +35,7 @@ class AirlineTicketsFragment : Fragment() {
 
         val adapter = AirlineTicketsAdapter()
 
-        val viewModel by viewModels<AirlineTicketsViewModel> {
-            viewModelFactory {
-                initializer {
-                    AirlineTicketsViewModel(TestAitTicketRepository())
-                }
-            }
-        }
+        val viewModel by viewModels<AirlineTicketsViewModel>()
 
         binding.cityTo.setOnClickListener {
             findNavController().navigate(

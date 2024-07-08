@@ -10,11 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewmodel.initializer
-import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import ru.lorderi.airtickets.R
@@ -23,13 +22,12 @@ import ru.lorderi.airtickets.ui.adapter.popularroute.PopularRouteAdapter
 import ru.lorderi.airtickets.ui.fragments.AirlineTicketsFragment.Companion.CITY_FROM
 import ru.lorderi.airtickets.ui.fragments.AirlineTicketsFragment.Companion.CITY_TO
 import ru.lorderi.airtickets.ui.itemdecoration.OffsetDecoration
-import ru.lorderi.airtickets.ui.repository.TestAitTicketRepository
 import ru.lorderi.airtickets.ui.util.getDate
 import ru.lorderi.airtickets.ui.util.getShorterDate
 import ru.lorderi.airtickets.ui.viewmodel.AirlineTicketsViewModel
 import java.util.Calendar
 
-
+@AndroidEntryPoint
 class AirlineTicketsSearchFragment : Fragment() {
     companion object {
         const val CURRENT_DATE = "currentDate"
@@ -46,13 +44,7 @@ class AirlineTicketsSearchFragment : Fragment() {
         val cityTo = arguments?.getString(CITY_TO)
         val cityFrom = arguments?.getString(CITY_FROM)
 
-        val viewModel by viewModels<AirlineTicketsViewModel> {
-            viewModelFactory {
-                initializer {
-                    AirlineTicketsViewModel(TestAitTicketRepository())
-                }
-            }
-        }
+        val viewModel by viewModels<AirlineTicketsViewModel>()
 
         cityTo?.let {
             binding.cityTo.setText(cityTo)

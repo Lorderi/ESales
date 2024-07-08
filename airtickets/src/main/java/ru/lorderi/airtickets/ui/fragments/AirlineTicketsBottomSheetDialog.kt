@@ -11,12 +11,11 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewmodel.initializer
-import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import ru.lorderi.airtickets.R
@@ -25,10 +24,9 @@ import ru.lorderi.airtickets.ui.adapter.searchoffers.SearchOffersAdapter
 import ru.lorderi.airtickets.ui.fragments.AirlineTicketsFragment.Companion.CITY_FROM
 import ru.lorderi.airtickets.ui.fragments.AirlineTicketsFragment.Companion.CITY_TO
 import ru.lorderi.airtickets.ui.itemdecoration.OffsetDecoration
-import ru.lorderi.airtickets.ui.repository.TestAitTicketRepository
 import ru.lorderi.airtickets.ui.viewmodel.AirlineTicketsViewModel
 
-
+@AndroidEntryPoint
 class AirlineTicketsBottomSheetDialog : BottomSheetDialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,13 +37,7 @@ class AirlineTicketsBottomSheetDialog : BottomSheetDialogFragment() {
         val cityTo = arguments?.getString(CITY_TO)
         val cityFrom = arguments?.getString(CITY_FROM)
 
-        val viewModel by viewModels<AirlineTicketsViewModel> {
-            viewModelFactory {
-                initializer {
-                    AirlineTicketsViewModel(TestAitTicketRepository())
-                }
-            }
-        }
+        val viewModel by viewModels<AirlineTicketsViewModel>()
 
         cityTo?.let {
             binding.cityTo.setText(cityTo)
@@ -140,9 +132,5 @@ class AirlineTicketsBottomSheetDialog : BottomSheetDialogFragment() {
             }
         }
         return super.onCreateDialog(savedInstanceState)
-    }
-
-    companion object {
-        const val TAG = "AirlineTicketsBottomSheetDialog"
     }
 }

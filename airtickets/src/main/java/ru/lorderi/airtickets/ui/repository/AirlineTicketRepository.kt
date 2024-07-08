@@ -7,9 +7,8 @@ import ru.lorderi.airtickets.ui.data.Tickets
 import ru.lorderi.airtickets.ui.data.TicketsOffers
 
 interface AirlineTicketRepository {
-    fun getTickets(): Flow<Offers>
+    suspend fun getTickets(): Offers
     fun getSearchOffers(): Flow<SearchOffers>
-    fun getTicketsOffers(): Flow<TicketsOffers>
-    fun getTicketsList(): Flow<Tickets>
-    fun setTicketsList(tickets: Tickets)
+    suspend fun getTicketsOffers(): TicketsOffers
+    suspend fun getTicketsList(): Tickets
 }

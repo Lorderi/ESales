@@ -8,25 +8,20 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewmodel.initializer
-import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.serialization.json.Json
-import ru.lorderi.airtickets.R
 import ru.lorderi.airtickets.databinding.FragmentAirlineTicketsListBinding
 import ru.lorderi.airtickets.ui.adapter.airlineticketslist.AirlineTicketsListAdapter
-import ru.lorderi.airtickets.ui.data.Tickets
 import ru.lorderi.airtickets.ui.fragments.AirlineTicketsFragment.Companion.CITY_FROM
 import ru.lorderi.airtickets.ui.fragments.AirlineTicketsFragment.Companion.CITY_TO
 import ru.lorderi.airtickets.ui.fragments.AirlineTicketsSearchFragment.Companion.CURRENT_DATE
 import ru.lorderi.airtickets.ui.fragments.AirlineTicketsSearchFragment.Companion.PASSENGER_COUNTER
 import ru.lorderi.airtickets.ui.itemdecoration.OffsetDecoration
-import ru.lorderi.airtickets.ui.repository.TestAitTicketRepository
 import ru.lorderi.airtickets.ui.viewmodel.AirlineTicketsViewModel
 
-
+@AndroidEntryPoint
 class AirlineTicketsListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,13 +29,7 @@ class AirlineTicketsListFragment : Fragment() {
     ): View {
         val binding = FragmentAirlineTicketsListBinding.inflate(inflater, container, false)
 
-        val viewModel by viewModels<AirlineTicketsViewModel> {
-            viewModelFactory {
-                initializer {
-                    AirlineTicketsViewModel(TestAitTicketRepository())
-                }
-            }
-        }
+        val viewModel by viewModels<AirlineTicketsViewModel>()
 
         val cityTo = arguments?.getString(CITY_TO)
         val cityFrom = arguments?.getString(CITY_FROM)
@@ -59,17 +48,6 @@ class AirlineTicketsListFragment : Fragment() {
         binding.ticketList.adapter = adapter
 
         bind(binding)
-
-        val text = resources.openRawResource(R.raw.tickets)
-            .bufferedReader().use { it.readText() }
-
-        val tickets = if (text.isNotBlank()) {
-            Json.decodeFromString(text)
-        } else {
-            Tickets(emptyList())
-        }
-
-        viewModel.setTicketsList(tickets)
 
         viewModel.uiState
             .flowWithLifecycle(lifecycle)
