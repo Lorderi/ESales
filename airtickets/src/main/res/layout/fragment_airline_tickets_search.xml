@@ -17,11 +17,12 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="13dp"
         app:cardBackgroundColor="@color/darker_grey"
+        app:cardCornerRadius="16dp"
         app:layout_constraintBottom_toTopOf="@id/chipMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed">
+        app:strokeColor="@android:color/transparent">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -72,7 +73,7 @@
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginEnd="16dp"
                 app:dividerColor="@color/dark_grey"
                 app:layout_constraintBottom_toTopOf="@id/cityTo"
@@ -116,6 +117,7 @@
         android:id="@+id/chipMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toTopOf="@id/popularPlate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -131,16 +133,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/back_label"
-                app:chipBackgroundColor="#242529"
+                app:chipBackgroundColor="@color/darker_grey"
                 app:chipCornerRadius="50dp"
-                app:chipIcon="@drawable/ic_add" />
+                app:chipIcon="@drawable/ic_add"
+                app:chipStrokeColor="@android:color/transparent" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/currentDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:chipBackgroundColor="#242529"
+                app:chipBackgroundColor="@color/darker_grey"
                 app:chipCornerRadius="50dp"
+                app:chipStrokeColor="@android:color/transparent"
                 tools:text="24 фев, сб" />
 
             <com.google.android.material.chip.Chip
@@ -148,18 +152,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/passenger_counter_label"
-                app:chipBackgroundColor="#242529"
+                app:chipBackgroundColor="@color/darker_grey"
                 app:chipCornerRadius="50dp"
-                app:chipIcon="@drawable/ic_profile" />
+                app:chipIcon="@drawable/ic_profile"
+                app:chipStrokeColor="@android:color/transparent" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/filter_label"
-                app:chipBackgroundColor="#242529"
+                android:layout_marginEnd="8dp"
+                app:chipBackgroundColor="@color/darker_grey"
                 app:chipCornerRadius="50dp"
-                app:chipIcon="@drawable/ic_settings" />
+                app:chipIcon="@drawable/ic_settings"
+                app:chipStrokeColor="@android:color/transparent" />
 
         </com.google.android.material.chip.ChipGroup>
 
@@ -170,14 +177,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        app:cardCornerRadius="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="12dp"
         app:cardBackgroundColor="@color/darkest_grey"
         app:layout_constraintBottom_toTopOf="@id/showAllTickets"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chipMenu">
+        app:layout_constraintTop_toBottomOf="@id/chipMenu"
+        app:strokeColor="@android:color/transparent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -204,12 +211,15 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/showAllTickets"
-        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_marginStart="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        app:cornerRadius="5dp"
         android:text="@string/check_all_tickets_label"
         android:textAlignment="center"
         android:textColor="@color/white"

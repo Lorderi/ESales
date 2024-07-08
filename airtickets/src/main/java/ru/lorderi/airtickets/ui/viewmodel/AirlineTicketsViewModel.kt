@@ -37,7 +37,7 @@ class AirlineTicketsViewModel @Inject constructor(
                     it.copy(offers = tickets)
                 }
             } catch (e: Exception) {
-
+                println("Load Tickets error")
             }
         }
     }
@@ -60,7 +60,7 @@ class AirlineTicketsViewModel @Inject constructor(
                     it.copy(ticketsList = ticketsList)
                 }
             } catch (e: Exception) {
-
+                println("Load Tickets list error")
             }
         }
     }
@@ -73,7 +73,7 @@ class AirlineTicketsViewModel @Inject constructor(
                     it.copy(ticketsOffers = ticketsOffers)
                 }
             } catch (e: Exception) {
-
+                println("Load Offers error")
             }
         }
     }

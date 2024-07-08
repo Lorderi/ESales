@@ -11,8 +11,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -59,10 +57,6 @@ class AirlineTicketsSearchFragment : Fragment() {
         binding.cityList.adapter = adapter
 
         bind(binding, viewModel)
-
-        val divider = DividerItemDecoration(requireContext(), VERTICAL)
-
-        binding.cityList.addItemDecoration(divider)
 
         viewModel.uiState
             .flowWithLifecycle(lifecycle)
@@ -119,7 +113,7 @@ class AirlineTicketsSearchFragment : Fragment() {
             }
         }
 
-        binding.cityList.addItemDecoration(OffsetDecoration(16, 16))
+        binding.cityList.addItemDecoration(OffsetDecoration(0, 0, 8, 0))
 
         binding.cancel.setOnClickListener {
             binding.cityTo.setText("")

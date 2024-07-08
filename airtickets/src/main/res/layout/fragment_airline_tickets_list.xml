@@ -18,22 +18,23 @@
             android:layout_margin="16dp"
             app:cardBackgroundColor="@color/another_grey"
             app:cardCornerRadius="0dp"
-            app:layout_constraintBottom_toTopOf="@id/chipMenu"
+            app:layout_constraintBottom_toTopOf="@id/ticketList"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@android:color/transparent">
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
+
                 android:id="@+id/searchMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/escape"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:contentDescription="@string/escape_label"
                     android:src="@drawable/ic_escape"
                     app:layout_constraintBottom_toBottomOf="@id/dateAndPassengerCount"
@@ -46,6 +47,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toTopOf="@id/dateAndPassengerCount"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -54,10 +57,12 @@
                     tools:text="Москва-Сочи" />
 
                 <TextView
+
                     android:id="@+id/dateAndPassengerCount"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
                     android:textColor="@color/grey"
                     android:textSize="16sp"
                     android:textStyle="italic"
@@ -71,27 +76,17 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <HorizontalScrollView
-            android:id="@+id/chipMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@id/ticketList"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/searchPanel" />
-
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/ticketList"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="16dp"
+            android:layout_marginTop="18dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/chipMenu"
+            app:layout_constraintTop_toBottomOf="@id/searchPanel"
             tools:listitem="@layout/ticket_advanced_card" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -100,6 +95,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
+        android:background="@drawable/button_background"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <Button
@@ -107,8 +104,9 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:backgroundTint="@color/blue"
-
+            android:padding="10dp"
             android:text="@string/filter_label_second"
             android:textColor="@color/white"
             app:icon="@drawable/ic_settings" />
@@ -118,8 +116,9 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
+            android:layout_gravity="center"
             android:backgroundTint="@color/blue"
+            android:padding="10dp"
             android:text="@string/prices_label"
             android:textColor="@color/white"
             app:icon="@drawable/ic_graph" />

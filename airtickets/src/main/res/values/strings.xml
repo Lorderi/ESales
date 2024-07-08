@@ -43,4 +43,6 @@
     <string name="filter_label_second">Фильтр</string>
     <string name="barrier_label">/</string>
     <string name="transit_type_label">Без пересадок</string>
+    <string name="filter_icon_dec">filter icon</string>
+    <string name="prices_icon_dec">prices icon</string>
 </resources>

@@ -68,7 +68,7 @@ class AirlineTicketsBottomSheetDialog : BottomSheetDialogFragment() {
     private fun bind(
         binding: AirlineTicketsBottomSheetBinding,
     ) {
-        binding.cityList.addItemDecoration(OffsetDecoration(16, 16))
+        binding.cityList.addItemDecoration(OffsetDecoration(0, 0, 8, 0))
 
         binding.cancel.setOnClickListener {
             binding.cityTo.setText("")

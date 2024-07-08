@@ -12,7 +12,7 @@ class PopularRouteViewHolder(
 
     fun bind(ticketsOffer: TicketsOffer) {
         binding.title.text = ticketsOffer.title
-        "от ${ticketsOffer.price.value.getPrice()} ₽".also { binding.price.text = it }
+        "${ticketsOffer.price.value.getPrice()} ₽".also { binding.price.text = it }
 
         val time = StringBuilder()
         ticketsOffer.timeRange.forEach { timeRange ->

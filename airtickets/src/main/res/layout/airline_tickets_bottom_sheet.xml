@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#242529"
+    android:layout_height="wrap_content"
+    android:background="@color/another_grey"
     android:orientation="vertical"
     tools:context="ru.lorderi.airtickets.ui.fragments.AirlineTicketsBottomSheetDialog">
 
@@ -14,11 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:cardBackgroundColor="#2F3035"
+        app:cardBackgroundColor="@color/darker_grey"
+        app:cardCornerRadius="16dp"
         app:layout_constraintBottom_toTopOf="@id/fastMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@android:color/transparent">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -112,10 +114,12 @@
         android:id="@+id/fastMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:background="@color/another_grey"
         android:baselineAligned="false"
         android:orientation="horizontal"
-        android:padding="16dp"
         app:layout_constraintBottom_toTopOf="@id/cityPlate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,7 +129,6 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -155,7 +158,6 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -186,7 +188,6 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -217,7 +218,6 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -251,11 +251,17 @@
         android:id="@+id/cityPlate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:cardBackgroundColor="#2F3035"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="@color/darker_grey"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/fastMenu"
+        app:strokeColor="@android:color/transparent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cityList"

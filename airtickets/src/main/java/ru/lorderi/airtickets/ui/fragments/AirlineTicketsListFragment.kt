@@ -31,18 +31,6 @@ class AirlineTicketsListFragment : Fragment() {
 
         val viewModel by viewModels<AirlineTicketsViewModel>()
 
-        val cityTo = arguments?.getString(CITY_TO)
-        val cityFrom = arguments?.getString(CITY_FROM)
-        val currentDate = arguments?.getString(CURRENT_DATE)
-        val passengerCounter = arguments?.getString(PASSENGER_COUNTER)
-
-        if (cityTo != null && cityFrom != null) {
-            "$cityFrom-$cityTo".also { binding.route.text = it }
-        }
-
-        "$currentDate, $passengerCounter пассажир".also { binding.dateAndPassengerCount.text = it }
-
-
         val adapter = AirlineTicketsListAdapter()
 
         binding.ticketList.adapter = adapter
@@ -60,8 +48,18 @@ class AirlineTicketsListFragment : Fragment() {
     }
 
     private fun bind(binding: FragmentAirlineTicketsListBinding) {
+        val cityTo = arguments?.getString(CITY_TO)
+        val cityFrom = arguments?.getString(CITY_FROM)
+        val currentDate = arguments?.getString(CURRENT_DATE)
+        val passengerCounter = arguments?.getString(PASSENGER_COUNTER)
 
-        binding.ticketList.addItemDecoration(OffsetDecoration(16, 16))
+        if (cityTo != null && cityFrom != null) {
+            "$cityFrom-$cityTo".also { binding.route.text = it }
+        }
+
+        "$currentDate, $passengerCounter пассажир".also { binding.dateAndPassengerCount.text = it }
+
+        binding.ticketList.addItemDecoration(OffsetDecoration(0, 16, 16, 16))
 
         binding.escape.setOnClickListener {
             requireParentFragment().findNavController().navigateUp()

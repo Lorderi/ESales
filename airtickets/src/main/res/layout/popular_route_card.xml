@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
-    android:layout_marginBottom="10dp"
-    android:layout_height="wrap_content">
+    android:layout_marginBottom="10dp">
 
     <ImageView
         android:id="@+id/routeIcon"
@@ -16,13 +16,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.193" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@id/time"
         app:layout_constraintEnd_toStartOf="@id/price"
@@ -34,6 +37,9 @@
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
         android:textColor="#2261BC"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@id/time"
@@ -46,6 +52,9 @@
         android:id="@+id/advancedIcon"
         android:layout_width="16dp"
         android:layout_height="16dp"
+
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
         android:contentDescription="@string/advanced_icon"
         android:src="@drawable/ic_advanced"
         app:layout_constraintBottom_toTopOf="@id/time"
@@ -66,6 +75,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginBottom="10dp"
         android:ellipsize="end"
         android:maxLines="1"
         android:orientation="horizontal"
@@ -75,4 +85,9 @@
         app:layout_constraintTop_toBottomOf="@id/header"
         tools:text="11:30" />
 
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:dividerColor="@color/dark_grey"
+        app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
