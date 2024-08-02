@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_menu_navigation"
+    app:startDestination="@id/airlineTicketsFragment">
+
+    <fragment
+        android:id="@+id/airlineTicketsFragment"
+        android:name="ru.lorderi.airtickets.ui.fragments.AirlineTicketsFragment"
+        android:label="fragment_airline_tickets"
+        tools:layout="@layout/fragment_airline_tickets">
+        <action
+            android:id="@+id/action_airlineTicketsFragment_to_airlineTicketsBottomSheetDialog"
+            app:destination="@id/airlineTicketsBottomSheetDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/airlineTicketsBottomSheetDialog"
+        android:name="ru.lorderi.airtickets.ui.fragments.AirlineTicketsBottomSheetDialog"
+        android:label="AirlineTicketsBottomSheetDialog">
+        <action
+            android:id="@+id/action_airlineTicketsBottomSheetDialog_to_airlineTicketsSearchFragment"
+            app:destination="@id/airlineTicketsSearchFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/airlineTicketsSearchFragment"
+        android:name="ru.lorderi.airtickets.ui.fragments.AirlineTicketsSearchFragment"
+        android:label="fragment_airline_tickets_search"
+        tools:layout="@layout/fragment_airline_tickets_search">
+        <action
+            android:id="@+id/action_airlineTicketsSearchFragment_to_airlineTicketsListFragment"
+            app:destination="@id/airlineTicketsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/airlineTicketsListFragment"
+        android:name="ru.lorderi.airtickets.ui.fragments.AirlineTicketsListFragment"
+        android:label="fragment_airline_tickets_list"
+        tools:layout="@layout/fragment_airline_tickets_list" />
+</navigation>

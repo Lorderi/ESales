@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:cardBackgroundColor="#1D1E20">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="@color/darkest_grey"
+        app:strokeColor="@android:color/transparent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/title1_default"
+                android:textColor="@color/white"
+                android:id="@+id/price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="21dp"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toTopOf="@id/timeHeader"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="6 990 ₽" />
+
+            <ImageView
+                android:id="@+id/routeIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="16dp"
+                android:contentDescription="@string/route_icon"
+                android:src="@drawable/popular_route_background"
+                app:layout_constraintBottom_toBottomOf="@id/airportBottom"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/timeHeader"
+                app:tint="@color/red" />
+
+            <TextView
+                style="@style/title4_italic"
+                android:textColor="@color/white"
+                android:id="@+id/timeFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintBottom_toTopOf="@id/airportTop"
+                app:layout_constraintEnd_toStartOf="@id/range"
+                app:layout_constraintStart_toEndOf="@id/routeIcon"
+                app:layout_constraintTop_toBottomOf="@id/price"
+                tools:text="03:15" />
+
+            <TextView
+                android:id="@+id/range"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/range_label"
+                android:textColor="@color/grey"
+                app:layout_constraintBottom_toTopOf="@id/airportTop"
+                app:layout_constraintEnd_toStartOf="@id/timeTo"
+                app:layout_constraintStart_toEndOf="@id/timeFrom"
+                app:layout_constraintTop_toBottomOf="@id/price" />
+
+            <TextView
+                android:id="@+id/timeTo"
+                style="@style/title4_italic"
+                android:layout_marginStart="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintBottom_toTopOf="@id/airportTop"
+                app:layout_constraintEnd_toStartOf="@id/routeLong"
+                app:layout_constraintStart_toEndOf="@id/range"
+                app:layout_constraintTop_toBottomOf="@id/price"
+                tools:text="07:10" />
+
+            <TextView
+                style="@style/text2"
+                android:textColor="@color/white"
+                android:id="@+id/routeLong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintBottom_toTopOf="@id/airportTop"
+                app:layout_constraintEnd_toStartOf="@id/symBarrier"
+                app:layout_constraintStart_toEndOf="@id/timeTo"
+                app:layout_constraintTop_toBottomOf="@id/price"
+                tools:text="4ч в пути" />
+
+            <TextView
+                style="@style/text2"
+                android:id="@+id/symBarrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/barrier_label"
+                android:textColor="@color/grey"
+                app:layout_constraintBottom_toTopOf="@id/airportTop"
+                app:layout_constraintEnd_toStartOf="@id/transitType"
+                app:layout_constraintStart_toEndOf="@id/routeLong"
+                app:layout_constraintTop_toBottomOf="@id/price" />
+
+            <TextView
+                style="@style/text2"
+                android:textColor="@color/white"
+                android:id="@+id/transitType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/transit_type_label"
+                app:layout_constraintBottom_toTopOf="@id/airportTop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/symBarrier"
+                app:layout_constraintTop_toBottomOf="@id/price" />
+
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/hasTransferGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="symBarrier, transitType" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/timeHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="top"
+                app:constraint_referenced_ids="timeFrom, timeTo, range, routeLong, symBarrier, transitType" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/timeBottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="timeFrom, timeTo, range, routeLong, symBarrier, transitType" />
+
+            <TextView
+                style="@style/title4_italic"
+                android:id="@+id/airportFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColor="@color/grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/timeFrom"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@id/timeFrom"
+                app:layout_constraintTop_toBottomOf="@id/timeBottom"
+                tools:text="VKO" />
+
+            <TextView
+                style="@style/title4_italic"
+                android:id="@+id/airportTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColor="@color/grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/timeTo"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/timeTo"
+                app:layout_constraintTop_toBottomOf="@id/timeBottom"
+                tools:text="AER" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/airportTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="top"
+                app:constraint_referenced_ids="airportFrom, airportTo" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/airportBottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="airportFrom, airportTo" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:backgroundTint="@color/blue">
+
+        <TextView
+            style="@style/title4_italic"
+            android:textColor="@color/white"
+            android:id="@+id/badgeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="2dp"
+            tools:text="Самый удобный" />
+
+    </com.google.android.material.card.MaterialCardView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
